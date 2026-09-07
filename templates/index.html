@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Hackathon Agent</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            margin-top: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Hackathon Agent</h1>
+
+    <p>
+        Enter a hackathon topic and let AI create a project idea for you!
+    </p>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="topic"
+            placeholder="Example: Healthcare, Education, Climate Change..."
+            required
+        >
+
+        <button type="submit">
+            🚀 Generate Project Idea
+        </button>
+
+    </form>
+
+    {% if answer %}
+
+    <div class="result">
+        {{ answer }}
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
