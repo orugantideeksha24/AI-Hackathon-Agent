@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AI Hackathon Agent</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,178 +21,212 @@
             font-family: Arial, Helvetica, sans-serif;
             min-height: 100vh;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 40px 20px;
+            padding: 30px 15px;
             color: #1f2937;
         }
 
         .container {
-            max-width: 950px;
+            max-width: 900px;
             margin: auto;
         }
+
+        /* HEADER */
 
         .hero {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 22px;
         }
 
         .robot {
-            font-size: 55px;
-            margin-bottom: 10px;
+            font-size: 48px;
+            margin-bottom: 6px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 12px;
+            font-size: 38px;
+            margin-bottom: 8px;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 16px;
             opacity: 0.9;
         }
 
+        /* MAIN CARD */
+
         .card {
-            background: rgba(255, 255, 255, 0.97);
-            border-radius: 22px;
-            padding: 35px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
         }
 
         .input-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         input {
             width: 100%;
-            padding: 16px 18px;
+            padding: 14px 16px;
             border: 2px solid #e5e7eb;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 16px;
             outline: none;
-            transition: 0.2s;
         }
 
         input:focus {
             border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
         }
 
         .examples {
-            margin-top: 12px;
+            margin-top: 8px;
             color: #6b7280;
-            font-size: 14px;
+            font-size: 13px;
         }
+
+        /* BUTTON */
 
         button {
             width: 100%;
-            margin-top: 20px;
-            padding: 16px;
+            margin-top: 16px;
+            padding: 14px;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: 0.2s;
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.35);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
 
-        .result {
-            margin-top: 30px;
-            padding: 28px;
-            background: #f8fafc;
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            white-space: pre-wrap;
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        .result-title {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+        /* FEATURE CARDS */
 
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 25px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .feature {
             background: #f8fafc;
-            border-radius: 14px;
-            padding: 18px;
+            border-radius: 12px;
+            padding: 14px;
             text-align: center;
             border: 1px solid #e5e7eb;
         }
 
         .feature-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .feature h3 {
-            font-size: 15px;
+            font-size: 24px;
             margin-bottom: 5px;
         }
 
+        .feature h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
         .feature p {
-            font-size: 13px;
+            font-size: 12px;
             color: #6b7280;
         }
+
+        /* RESULT */
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+
+            white-space: pre-wrap;
+
+            line-height: 1.45;
+
+            font-size: 15px;
+
+            overflow-wrap: break-word;
+        }
+
+        .result-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+        /* FOOTER */
 
         .footer {
             text-align: center;
             color: white;
-            margin-top: 25px;
-            font-size: 14px;
+            margin-top: 18px;
+            font-size: 13px;
             opacity: 0.85;
         }
+
+        /* MOBILE */
 
         @media (max-width: 700px) {
 
             body {
-                padding: 25px 15px;
+                padding: 20px 12px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .card {
-                padding: 22px;
+                padding: 18px;
             }
 
             .features {
                 grid-template-columns: 1fr;
             }
+
+            .result {
+                padding: 16px;
+                font-size: 14px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
     <div class="container">
 
+
+        <!-- HEADER -->
+
         <div class="hero">
 
-            <div class="robot">🤖</div>
+            <div class="robot">
+                🤖
+            </div>
 
-            <h1>AI Hackathon Agent</h1>
+            <h1>
+                AI Hackathon Agent
+            </h1>
 
             <p>
                 Turn your idea into a complete hackathon project in seconds.
@@ -198,11 +235,15 @@
         </div>
 
 
+        <!-- MAIN CARD -->
+
         <div class="card">
+
 
             <div class="input-title">
                 💡 What's your hackathon topic?
             </div>
+
 
             <form method="POST">
 
@@ -213,24 +254,38 @@
                     required
                 >
 
+
                 <div class="examples">
-                    Try: Healthcare • Education • Agriculture • Cybersecurity • Environment
+
+                    Try:
+                    Healthcare • Education • Agriculture • Cybersecurity • Environment
+
                 </div>
 
+
                 <button type="submit">
+
                     🚀 Generate Project Idea
+
                 </button>
 
             </form>
 
 
+            <!-- FEATURES -->
+
             <div class="features">
+
 
                 <div class="feature">
 
-                    <div class="feature-icon">💡</div>
+                    <div class="feature-icon">
+                        💡
+                    </div>
 
-                    <h3>Project Ideas</h3>
+                    <h3>
+                        Project Ideas
+                    </h3>
 
                     <p>
                         Get practical project concepts.
@@ -241,9 +296,13 @@
 
                 <div class="feature">
 
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon">
+                        🧠
+                    </div>
 
-                    <h3>AI Powered</h3>
+                    <h3>
+                        AI Powered
+                    </h3>
 
                     <p>
                         Ideas generated using AI.
@@ -254,9 +313,13 @@
 
                 <div class="feature">
 
-                    <div class="feature-icon">🏆</div>
+                    <div class="feature-icon">
+                        🏆
+                    </div>
 
-                    <h3>Hackathon Ready</h3>
+                    <h3>
+                        Hackathon Ready
+                    </h3>
 
                     <p>
                         Easy to understand and present.
@@ -264,8 +327,11 @@
 
                 </div>
 
+
             </div>
 
+
+            <!-- AI RESULT -->
 
             {% if answer %}
 
@@ -281,6 +347,7 @@
 
             {% endif %}
 
+
         </div>
 
 
@@ -289,6 +356,7 @@
             Made with 🤖 AI • Built for Hackathons 🚀
 
         </div>
+
 
     </div>
 
