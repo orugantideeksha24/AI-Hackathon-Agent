@@ -1,104 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI Hackathon Agent</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 40px 20px;
+            color: #1f2937;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
         }
 
-        h1 {
+        .hero {
             text-align: center;
+            color: white;
+            margin-bottom: 30px;
         }
 
-        p {
-            text-align: center;
-            color: #666;
+        .robot {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 22px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .input-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 12px;
         }
 
         input {
             width: 100%;
-            padding: 15px;
-            box-sizing: border-box;
-            margin-top: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            padding: 16px 18px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
             font-size: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.12);
+        }
+
+        .examples {
+            margin-top: 12px;
+            color: #6b7280;
+            font-size: 14px;
         }
 
         button {
             width: 100%;
-            padding: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
+            padding: 16px;
             border: none;
-            border-radius: 8px;
-            background: #111;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            font-size: 16px;
+            font-size: 17px;
+            font-weight: bold;
             cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         button:hover {
-            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.35);
         }
 
         .result {
             margin-top: 30px;
-            padding: 20px;
-            background: #f8f8f8;
-            border-radius: 10px;
+            padding: 28px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
             white-space: pre-wrap;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .feature h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 25px;
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 25px 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>🤖 AI Hackathon Agent</h1>
+        <div class="hero">
 
-    <p>
-        Enter a hackathon topic and let AI create a project idea for you!
-    </p>
+            <div class="robot">🤖</div>
 
-    <form method="POST">
+            <h1>AI Hackathon Agent</h1>
 
-        <input
-            type="text"
-            name="topic"
-            placeholder="Example: Healthcare, Education, Climate Change..."
-            required
-        >
+            <p>
+                Turn your idea into a complete hackathon project in seconds.
+            </p>
 
-        <button type="submit">
-            🚀 Generate Project Idea
-        </button>
+        </div>
 
-    </form>
 
-    {% if answer %}
+        <div class="card">
 
-    <div class="result">
-        {{ answer }}
+            <div class="input-title">
+                💡 What's your hackathon topic?
+            </div>
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="topic"
+                    placeholder="Example: Healthcare, Education, Climate Change..."
+                    required
+                >
+
+                <div class="examples">
+                    Try: Healthcare • Education • Agriculture • Cybersecurity • Environment
+                </div>
+
+                <button type="submit">
+                    🚀 Generate Project Idea
+                </button>
+
+            </form>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">💡</div>
+
+                    <h3>Project Ideas</h3>
+
+                    <p>
+                        Get practical project concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">🧠</div>
+
+                    <h3>AI Powered</h3>
+
+                    <p>
+                        Ideas generated using AI.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">🏆</div>
+
+                    <h3>Hackathon Ready</h3>
+
+                    <p>
+                        Easy to understand and present.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% if answer %}
+
+            <div class="result">
+
+                <div class="result-title">
+                    🎯 Your AI-Generated Project
+                </div>
+
+                {{ answer }}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="footer">
+
+            Made with 🤖 AI • Built for Hackathons 🚀
+
+        </div>
+
     </div>
 
-    {% endif %}
-
-</div>
-
 </body>
+
 </html>
