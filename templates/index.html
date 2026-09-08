@@ -2,30 +2,27 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AI Hackathon Agent</title>
 
     <style>
-
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            min-height: 100vh;
             background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 30px 15px;
             color: #1f2937;
+            min-height: 100vh;
+            padding: 30px 15px;
         }
 
         .container {
+            width: 100%;
             max-width: 900px;
             margin: auto;
         }
@@ -35,45 +32,46 @@
         .hero {
             text-align: center;
             color: white;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .robot {
-            font-size: 48px;
-            margin-bottom: 6px;
+            font-size: 42px;
+            margin-bottom: 5px;
         }
 
         .hero h1 {
-            font-size: 38px;
-            margin-bottom: 8px;
+            margin: 0 0 7px 0;
+            font-size: 36px;
         }
 
         .hero p {
+            margin: 0;
             font-size: 16px;
-            opacity: 0.9;
         }
 
         /* MAIN CARD */
 
         .card {
-            background: rgba(255, 255, 255, 0.98);
+            background: white;
             border-radius: 18px;
-            padding: 24px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+            padding: 22px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
         }
 
         .input-title {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
         input {
             width: 100%;
-            padding: 14px 16px;
+            height: 48px;
+            padding: 0 15px;
             border: 2px solid #e5e7eb;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 15px;
             outline: none;
         }
 
@@ -82,7 +80,7 @@
         }
 
         .examples {
-            margin-top: 8px;
+            margin-top: 7px;
             color: #6b7280;
             font-size: 13px;
         }
@@ -91,8 +89,8 @@
 
         button {
             width: 100%;
-            margin-top: 16px;
-            padding: 14px;
+            height: 48px;
+            margin-top: 14px;
             border: none;
             border-radius: 10px;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -100,69 +98,77 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            opacity: 0.92;
         }
 
-        /* FEATURE CARDS */
+        /* FEATURES */
 
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
 
         .feature {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 14px;
+            padding: 14px 10px;
             text-align: center;
+            background: #f8fafc;
             border: 1px solid #e5e7eb;
+            border-radius: 12px;
         }
 
         .feature-icon {
-            font-size: 24px;
+            font-size: 25px;
             margin-bottom: 5px;
         }
 
         .feature h3 {
+            margin: 0 0 5px 0;
             font-size: 14px;
-            margin-bottom: 4px;
         }
 
         .feature p {
+            margin: 0;
             font-size: 12px;
             color: #6b7280;
         }
 
-        /* RESULT */
+        /* RESULT AREA */
 
         .result {
-            margin-top: 20px;
-            padding: 20px;
+            margin-top: 18px;
+            padding: 18px;
             background: #f8fafc;
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e2e8f0;
             border-radius: 14px;
 
-            white-space: pre-wrap;
-
-            line-height: 1.45;
-
-            font-size: 15px;
-
-            overflow-wrap: break-word;
+            /* IMPORTANT */
+            height: auto;
+            min-height: 0;
+            overflow: visible;
         }
 
         .result-title {
+            margin: 0 0 14px 0;
+            padding: 0;
             font-size: 20px;
             font-weight: bold;
-            margin-bottom: 12px;
-            color: #1f2937;
+            line-height: 1.3;
+        }
+
+        .result-content {
+            margin: 0;
+            padding: 0;
+
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.45;
+
+            overflow-wrap: anywhere;
         }
 
         /* FOOTER */
@@ -170,9 +176,8 @@
         .footer {
             text-align: center;
             color: white;
-            margin-top: 18px;
+            margin-top: 15px;
             font-size: 13px;
-            opacity: 0.85;
         }
 
         /* MOBILE */
@@ -192,7 +197,7 @@
             }
 
             .card {
-                padding: 18px;
+                padding: 16px;
             }
 
             .features {
@@ -200,12 +205,17 @@
             }
 
             .result {
-                padding: 16px;
-                font-size: 14px;
+                padding: 15px;
             }
 
-        }
+            .result-title {
+                font-size: 18px;
+            }
 
+            .result-content {
+                font-size: 14px;
+            }
+        }
     </style>
 
 </head>
@@ -214,7 +224,6 @@
 <body>
 
     <div class="container">
-
 
         <!-- HEADER -->
 
@@ -239,7 +248,6 @@
 
         <div class="card">
 
-
             <div class="input-title">
                 💡 What's your hackathon topic?
             </div>
@@ -254,19 +262,12 @@
                     required
                 >
 
-
                 <div class="examples">
-
-                    Try:
-                    Healthcare • Education • Agriculture • Cybersecurity • Environment
-
+                    Try: Healthcare • Education • Agriculture • Cybersecurity • Environment
                 </div>
 
-
                 <button type="submit">
-
                     🚀 Generate Project Idea
-
                 </button>
 
             </form>
@@ -275,7 +276,6 @@
             <!-- FEATURES -->
 
             <div class="features">
-
 
                 <div class="feature">
 
@@ -327,7 +327,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -341,7 +340,7 @@
                     🎯 Your AI-Generated Project
                 </div>
 
-                {{ answer }}
+                <div class="result-content">{{ answer }}</div>
 
             </div>
 
@@ -352,11 +351,8 @@
 
 
         <div class="footer">
-
             Made with 🤖 AI • Built for Hackathons 🚀
-
         </div>
-
 
     </div>
 
